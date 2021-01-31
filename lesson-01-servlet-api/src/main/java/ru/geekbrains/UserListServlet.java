@@ -44,6 +44,8 @@ public class UserListServlet extends HttpServlet {
         }
 
         resp.getWriter().println("</table>");
+
+        System.out.println();
     }
 
 
