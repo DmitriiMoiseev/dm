@@ -1,4 +1,4 @@
-package ru.geekbrains.persist;
+package ru.geekbrains.user.persist;
 
 import org.springframework.stereotype.Repository;
 

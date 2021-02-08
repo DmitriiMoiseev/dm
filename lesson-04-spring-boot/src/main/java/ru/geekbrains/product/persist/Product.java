@@ -1,12 +1,21 @@
-package ru.geekbrains.persist;
+package ru.geekbrains.product.persist;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 
 public class Product {
 
     private Long id;
 
+    @NotEmpty
     private String productName;
 
-    private String password;
+    @NotEmpty
+    private String description;
+
+    public Product() {
+
+    }
 
     public Product(String productName) {
         this.productName = productName;
@@ -28,11 +37,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

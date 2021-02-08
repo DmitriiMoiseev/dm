@@ -1,16 +1,16 @@
-package ru.geekbrains.controller;
+package ru.geekbrains.product.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import ru.geekbrains.persist.Product;
-import ru.geekbrains.persist.ProductRepository;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import ru.geekbrains.product.persist.Product;
+import ru.geekbrains.product.persist.ProductRepository;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/product")
@@ -42,10 +42,14 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public String update(Product product) {
+    public String update(@Valid Product product, BindingResult result) {
         logger.info("Update endpoint requested");
 
-        if (product.getId() != -1) {
+        if(result.hasErrors()) {
+            return "product_form";
+        }
+
+        if (product.getId() != null) {
             logger.info("Updating user with id {}", product.getId());
             productRepository.update(product);
         } else {
@@ -56,13 +60,13 @@ public class ProductController {
     }
 
     @GetMapping("/new")
-    public String create(Product product) {
+    public String create(Model model) {
         logger.info("Create product");
-        productRepository.insert(product);
+        model.addAttribute("product", new Product());
         return "product_form";
     }
 
-    @GetMapping("/{id}/delete")
+    @DeleteMapping("/{id}")
     public String remove(@PathVariable("id") long id) {
         logger.info("Remove product");
         productRepository.delete(id);

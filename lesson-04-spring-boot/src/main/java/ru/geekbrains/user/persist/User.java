@@ -1,17 +1,23 @@
-package ru.geekbrains.persist;
+package ru.geekbrains.user.persist;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 public class User {
 
     private Long id;
 
+    @NotEmpty
     private String username;
 
+    @NotEmpty
     private String password;
 
+    @NotEmpty
+    private String matchingPassword;
+
     @Email
-    private String email;
+    public String email;
 
     public User() {
     }
@@ -50,5 +56,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
     }
 }
