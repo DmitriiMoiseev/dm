@@ -54,7 +54,7 @@
                     <td>
                         <a class="btn btn-success" th:href="@{/user/{id}(id = ${user.id})}"><i class="fas fa-edit"></i></a>
                         <form class="d-inline" th:method="delete" th:action="@{/user/{id}(id = ${user.id})}">
-                            <button type="submit" class="btn btn-success"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>

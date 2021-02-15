@@ -1,4 +1,4 @@
-package ru.geekbrains.controller;
+package ru.geekbrains.user.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.geekbrains.persist.User;
-import ru.geekbrains.persist.UserRepository;
+import ru.geekbrains.user.persist.User;
+import ru.geekbrains.user.persist.UserRepository;
 
 import javax.validation.Valid;
 
@@ -49,6 +49,11 @@ public class UserController {
             return "user_form";
         }
 
+        if(!user.getPassword().equals(user.getMatchingPassword())) {
+            result.rejectValue("password","" ,"Password not matching");
+            return "user_form";
+        }
+
         if (user.getId() != null) {
             logger.info("Updating user with id {}", user.getId());
             userRepository.update(user);
@@ -62,16 +67,9 @@ public class UserController {
     @GetMapping("/new")
     public String create(Model model) {
         logger.info("Create user");
-         model.addAttribute("user", new User());
+        model.addAttribute("user", new User());
         return "user_form";
     }
-
-//    @GetMapping("/{id}/delete")
-//    public String remove(@PathVariable("id") long id) {
-//        logger.info("Remove user");
-//        userRepository.delete(id);
-//        return "redirect:/user";
-//    }
 
     @DeleteMapping("/{id}")
     public String remove(@PathVariable("id") long id) {
