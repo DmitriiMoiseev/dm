@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.geekbrains</groupId>
-    <artifactId>lesson-05-hibernate</artifactId>
+    <artifactId>lesson-06-hibernate</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -23,6 +22,7 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.24.Final</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
