@@ -13,6 +13,9 @@ public class Product {
     @NotEmpty
     private String description;
 
+    @NotEmpty
+    private int price;
+
     public Product() {
 
     }
@@ -43,5 +46,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

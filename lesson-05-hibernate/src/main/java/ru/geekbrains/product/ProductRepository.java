@@ -21,7 +21,6 @@ public class ProductRepository {
 
         em.getTransaction().commit();
         em.close();
-
     }
 
     public Product findById(long id) {
