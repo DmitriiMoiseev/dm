@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.geekbrains</groupId>
-    <artifactId>lesson-04-spring-boot</artifactId>
+    <artifactId>lesson-07</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lesson-04-spring-boot</name>
+    <name>lesson-07</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -50,12 +50,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
-        </dependency>
-
     </dependencies>
 
     <build>
