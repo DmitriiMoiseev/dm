@@ -1,4 +1,5 @@
 package ru.geekbrains.user.persist;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -9,11 +10,11 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findUserByUsernameLike(String username);
+}
 
 //    @Query("select u from User u where u.username like :username")
 //    List<User> someQuery(@Param("username") String username);
 
-}
 // Строчки выше достаточно, чтобы сделать тоже самое, что написано ниже, но автоматически.
 
 // Было

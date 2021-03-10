@@ -7,7 +7,7 @@ public interface ProductService {
 
     List<ProductRepr> findAll();
 
-    List<ProductRepr> findWithFilter(String productnameFilter);
+    List<ProductRepr> findWithFilter(String productNameFilter);
 
     Optional<ProductRepr> findById(long id);
 

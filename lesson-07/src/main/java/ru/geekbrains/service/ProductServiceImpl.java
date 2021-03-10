@@ -22,11 +22,12 @@ public class ProductServiceImpl implements ProductService{
 
 
     @Override
-    public List<ProductRepr> findWithFilter(String productnameFilter) {
-        return productRepository.findUserByUsernameLike(productnameFilter).stream()
+    public List<ProductRepr> findWithFilter(String productNameFilter) {
+        return productRepository.findProductByProductNameLike(productNameFilter).stream()
                 .map(ProductRepr :: new)
                 .collect(Collectors.toList());
     }
+
 
     @Transactional
     @Override

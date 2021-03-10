@@ -28,12 +28,12 @@ public class ProductController {
     }
 
     @GetMapping
-    public String listPage(Model model, @RequestParam("productnameFilter") Optional<String> productnameFilter) {
+    public String listPage(Model model, @RequestParam("productNameFilter") Optional<String> productNameFilter) {
         logger.info("List page requested");
 
         List<ProductRepr> products;
-        if(productnameFilter.isPresent() && !productnameFilter.get().isBlank() ) {
-            products = productService.findWithFilter(productnameFilter.get());
+        if(productNameFilter.isPresent() && !productNameFilter.get().isBlank() ) {
+            products = productService.findWithFilter(productNameFilter.get());
         } else {
             products = productService.findAll();
         }

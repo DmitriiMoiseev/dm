@@ -42,9 +42,9 @@
             <form class="form-inline" th:method="get">
 
                 <div class="form-group mx-sm-3 mb-2 mr-2">
-                    <label for="productnameFilter" class="sr-only">Productname filter</label>
-                    <input type="text" class="form-control" id="productnameFilter" th:value="${param.productnameFilter}"
-                           name="productnameFilter" placeholder="Productname filter">
+                    <label for="productNameFilter" class="sr-only">ProductName filter</label>
+                    <input type="text" class="form-control" id="productNameFilter" th:value="${param.productnameFilter}"
+                           name="productNameFilter" placeholder="ProductName filter">
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">Apply</button>
@@ -58,6 +58,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">ProductName</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -66,6 +67,7 @@
                     <th th:text="${product.id}" scope="row"></th>
                     <td th:text="${product.productName}"></td>
                     <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
                     <td>
                         <a class="btn btn-success" th:href="@{/product/{id}(id = ${product.id})}"><i class="fas fa-edit"></i></a>
                         <form class="d-inline" th:method="delete" th:action="@{/product/{id}(id = ${product.id})}">

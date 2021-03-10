@@ -20,18 +20,19 @@ public class Product {
     private String description;
 
     @Column(nullable = false)
-    private BigDecimal price;
+    private String price;
 
     public Product() {
     }
 
-    public Product(String productName, String description, BigDecimal price) {
+    public Product(String productName, String description, String price) {
         this.productName = productName;
         this.description = description;
         this.price = price;
     }
 
     public Product(ProductRepr pr) {
+        this.id = pr.getId();
         this.productName = pr.getProductName();
         this.description = pr.getDescription();
         this.price = pr.getPrice();
@@ -61,11 +62,11 @@ public class Product {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }
